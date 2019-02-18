@@ -1,0 +1,35 @@
+<div class="container-fluid test1">
+  <div class="row mx-3 ">
+    <div class="col-lg-4 my-1 justify-content-around">
+      <mdb-card cascade="true" class="test" style="margin-top: 80px;" narrower="true">
+        <mdb-card-body cascade="true" class="text-center">
+          <h6 class="card-title">LUXURIOUS</h6>
+          <button routerLinkActive="active" routerLink="luxurious" class="btn btn-outline-dark btn-sm" type="button">Show
+            Details</button>
+        </mdb-card-body>
+
+      </mdb-card>
+    </div>
+    <div class="col-lg-4 my-1 justify-content-around">
+      <mdb-card cascade="true" class="test" narrower="true">
+        <mdb-card-body cascade="true" class="text-center">
+          <h6 class="card-title">PERSONAL</h6>
+          <button routerLinkActive="active" routerLink="personal" class="btn btn-outline-dark btn-sm" type="button">Show
+              Details</button>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+    <div class="col-lg-4 my-1 justify-content-around">
+      <mdb-card cascade="true" class="test" narrower="true">
+        <mdb-card-body cascade="true" class="text-center">
+          <h6 class="card-title">TRANSPORT</h6>
+          <button routerLinkActive="active" routerLink="transport" class="btn btn-outline-dark btn-sm" type="button">Show
+              Details</button>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
+  <div *ngIf="loading">
+<router-outlet></router-outlet>
+</div>
+</div>

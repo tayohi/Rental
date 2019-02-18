@@ -1,0 +1,63 @@
+<div class="container px-auto " style="margin-top: 100px;">
+  <div class="row">
+    <div *ngIf="carService.checkOutCar === null" [@showHide] class="col-sm-12 mx-auto">
+      <form #f="ngForm">
+        <div class="row">
+          <div  *ngIf="carService.selectedCar.getValue() !== null" class="col-sm-6 mx-auto mb-5 float-center text-center ">
+            <app-selected-car></app-selected-car>
+          </div>
+          <div class="col-sm-6 mx-auto float-center">
+            <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+              <div class="col-sm-12 mx-auto text-center px-auto">
+                <div class="form-group">
+                  <p class="text-center">Select type of car </p>
+                  <select id="type" class="browser-default custom-select" (ngModelChange)="typePick()" ngModel name="type"
+                    required #type="ngModel">
+                    <option value="Luxury">Luxury</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Transport">Transport</option>
+                  </select>
+                </div>
+              </div>
+              <div *ngIf="type.valid" class="col-sm-12 mx-auto text-center px-auto animated fadeIn" style="z-index: 1000">
+                <p>Select date</p>
+                <div class="col-sm-6 float-left">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control" [minDate]="minDate" (ngModelChange)="datePick()" placeholder="Select date from"
+                        ngModel name="dpFrom" (click)="dataFrom.toggle()" ngbDatepicker #dataFrom="ngbDatepicker">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6  float-right">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input class="form-control" [minDate]="minDate2" [(disabled)]="disabled" placeholder="Select date to"
+                        ngModel name="dpTo" (click)="dataTo.toggle()" ngbDatepicker #dataTo="ngbDatepicker">
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-outline-dark" [disabled]="userData.invalid || carBase.length > 0" type="button"
+                  name="showCar" #showCar #button (click)="showCars()">Show available cars</button><br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="showedCars" [@showHide]>
+          <h3 class="help-block animated fadeIn mt-5 text-center" *ngIf=" userData.valid && carBase.length === 0">Sorry
+            we don't
+            have available cars!</h3>
+          <div *ngIf="carBase.length > 0" class="col-sm-12 mt-5 mx-auto text-center px-auto animated fadeIn">
+
+            <h3>Available cars</h3>
+            <div class="row mb-5">
+              <app-car-list *ngFor="let car of carBase;" [availableCar]="car" class="col-lg-4 col-md-6 my-3">
+              </app-car-list>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

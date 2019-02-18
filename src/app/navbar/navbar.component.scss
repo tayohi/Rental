@@ -1,0 +1,17 @@
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+      background-color:  rgba(26, 102, 122, 0.8);
+  }
+}
+.nav-item.active {
+  border-bottom: 2px solid rgba(26, 102, 122, 0.8);
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+.dropdown-item.active {
+  background-color: rgba(26, 102, 122, 0.8) !important;
+}

@@ -1,0 +1,14 @@
+  <mdb-card cascade="true" narrower="true">
+    <div class=" view-cascade overlay waves-light" mdbWavesEffect>
+      <mdb-card-img src="assets/personal.jpg"></mdb-card-img>
+    </div>
+    <mdb-card-body cascade="true" class="text-center">
+      <h4 class="card-title">{{availableCar.model}}</h4>
+      <mdb-card-text class="text-left">
+        <p>Engine: <b>{{availableCar.engine}}</b>
+        <br>Version: <b>{{availableCar.description}}</b>
+        <br>Additional equipment: <b>{{availableCar.comments}}</b></p>
+      </mdb-card-text>
+      <button type="button" class="btn btn-outline-dark"  (click)="selectCar()">Select</button>
+    </mdb-card-body>
+  </mdb-card>

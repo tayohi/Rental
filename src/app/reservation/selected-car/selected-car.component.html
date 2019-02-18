@@ -1,0 +1,18 @@
+<div *ngIf="carIsShowed"[@showHide]>
+<mdb-card cascade="true" narrower="true">
+    <div class=" view-cascade overlay waves-light" mdbWavesEffect>
+      <mdb-card-img src="assets/personal.jpg"></mdb-card-img>
+    </div>
+    <mdb-card-body cascade="true" class="text-center">
+      <h4 class="card-title">{{selectedCar.model}}</h4>
+      <mdb-card-text class="text-left">
+        <p>Engine: <b>{{selectedCar.engine}}</b>
+        <br>Version: <b>{{selectedCar.description}}</b>
+        <br>Additional equipment: <b>{{selectedCar.comments}}</b>
+        <br>Date from: <b> {{checkOutDate[0].day}}-{{checkOutDate[0].month}}-{{checkOutDate[0].year}}</b> to: <b>{{checkOutDate[(checkOutDate.length)-1].day}}-{{checkOutDate[(checkOutDate.length)-1].month}}-{{checkOutDate[(checkOutDate.length)-1].year}}</b></p>
+      </mdb-card-text>
+      <button class="btn btn-outline-dark" (click)="confirmCar()" type="button">CHECKOUT</button>
+    </mdb-card-body>
+  </mdb-card>
+</div>
+

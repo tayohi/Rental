@@ -1,0 +1,87 @@
+.view {
+  background: url("../../assets/top_car.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.test1 {
+  height: 100vh;
+}
+
+.logo {
+  height: 100%;
+  width: 40%;
+  background-color: rgba($color: white, $alpha: 0.6);
+  padding: 10px;
+  border-radius: 10px;
+}
+.offerCar{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+.test{
+  margin-top: 10px;
+  padding-top: 0px;
+}
+
+@media all and  (min-width: 991px) {
+.test{
+  margin-top: 0px !important;
+  padding-top: 80px;
+}
+}
+
+hr {
+  height: 12px;
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.8);
+
+}
+
+.arrow-down {
+  content: "";
+  color: black;
+  width: 40px;  height: 40px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-animation: 2s arrow infinite ease;
+  animation: 2s arrow infinite ease;
+  }
+
+  @-webkit-keyframes arrow {
+    0%, 100% {
+      top: 70%;
+    }
+    50% {
+      top: 80%;
+
+    }
+  }
+  @keyframes arrow {
+    0%, 100% {
+      top: 40%;
+    }
+    50% {
+      top: 60%;
+
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+  }
+  .nav-item.active {
+    border-bottom: 2px solid rgba(26, 102, 122, 0.8);
+  }

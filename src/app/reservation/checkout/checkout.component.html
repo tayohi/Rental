@@ -1,0 +1,94 @@
+<div class="col-sm-12 mx-auto">
+  <div class="row">
+    <div class="col-sm-6 mx-auto float-center text-center mb-5 ">
+      <mdb-card cascade="true" narrower="true">
+        <div class=" view-cascade overlay waves-light" mdbWavesEffect>
+          <mdb-card-img src="assets/personal.jpg"></mdb-card-img>
+        </div>
+        <mdb-card-body cascade="true" class="text-center">
+          <h4 class="card-title">{{selectedCar.model}}</h4>
+          <mdb-card-text class="text-left">
+            <p>Engine: <b>{{selectedCar.engine}}</b>
+              <br>Version: <b>{{selectedCar.description}}</b>
+              <br>Additional equipment: <b>{{selectedCar.comments}}</b>
+              <br>Date from: <b> {{checkOutDate[0].day}}-{{checkOutDate[0].month}}-{{checkOutDate[0].year}}</b> to: <b>{{checkOutDate[(checkOutDate.length)-1].day}}-{{checkOutDate[(checkOutDate.length)-1].month}}-{{checkOutDate[(checkOutDate.length)-1].year}}</b></p>
+          </mdb-card-text>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+    <div class="col-sm-6 mx-auto mb-5 float-center">
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+          <div class="col-sm-12 mx-auto text-left px-auto">
+            <p class="text-center">Personal data</p>
+            <div class="form-group">
+              <label for="name"> Your Name</label>
+              <input type="text" id="name" class="form-control" name="name" ngModel required>
+            </div>
+            <div class="form-group">
+              <label for="surname">Your Surname</label>
+              <input type="text" id="surname" class="form-control" name="surname" ngModel required>
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" class="form-control" email name="email" #email="ngModel" ngModel required>
+              <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+            </div>
+            <div class="form-group">
+              <label for="birthday">Your Date of Birth</label>
+              <input id="birthday" class="form-control" [minDate]="minDate" [maxDate]="maxDate" placeholder="Select date"
+                ngModel name="birthday" (click)="dataFrom.toggle()" ngbDatepicker #dataFrom="ngbDatepicker">
+            </div>
+          </div>
+        </div>
+        <div class="text-center mx-auto">
+          <button class="btn btn-outline-dark" type="submit" [disabled]="!f.valid">Submit</button>
+          <button class="btn btn-outline-dark" [disabled]="!f.valid">Load data from account</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+
+<ng-template #content let-c="close">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Congratulations!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h4>Your order number: {{order.orderId}}</h4>
+    <p>You have reserved a car:
+      <br>Model: <b>{{selectedCar.model}}</b>
+      <br>Engine: <b>{{selectedCar.engine}}</b>
+      <br>Version: <b>{{selectedCar.description}}</b>
+      <br>Additional equipment: <b>{{selectedCar.comments}}</b>
+      <br>Date from: <b> {{checkOutDate[0].day}}-{{checkOutDate[0].month}}-{{checkOutDate[0].year}}</b> to: <b>{{checkOutDate[(checkOutDate.length)-1].day}}-{{checkOutDate[(checkOutDate.length)-1].month}}-{{checkOutDate[(checkOutDate.length)-1].year}}</b></p>
+    <p>Please contact us two days before the date of receipt.
+      <br>You will receive a Conformation on Email.<br>  </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark"  (click)="closeModal()">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #content2 let-c="close">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Ooops!</h4>
+      <button type="button" class="close" aria-label="Close" (click)="closeModal2()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h4>Sorry!</h4>
+      <p>Ooops sorry but somebody was faster,
+        <br>unfortunately you have to choose another car in this Termin.</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark"  (click)="closeModal2()">Back to reservation</button>
+    </div>
+  </ng-template>

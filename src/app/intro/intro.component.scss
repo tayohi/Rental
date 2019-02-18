@@ -1,0 +1,55 @@
+.view {
+  background: url("../../assets/top_car.jpg");
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.logo {
+  height: 100%;
+  width: 40%;
+  background-color: rgba($color: white, $alpha: 0.6);
+  padding: 10px;
+  border-radius: 10px;
+}
+.offerCar{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+.arrow-down {
+  content: "";
+  color: rgba(26, 102, 122, 0.8);
+  width: 40px;  height: 40px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-animation: 2s arrow infinite ease;
+  animation: 2s arrow infinite ease;
+  }
+
+  @-webkit-keyframes arrow {
+    0%, 100% {
+      top: 70%;
+    }
+    50% {
+      top: 80%;
+
+    }
+  }
+  @keyframes arrow {
+    0%, 100% {
+      top: 40%;
+    }
+    50% {
+      top: 60%;
+
+    }
+  }

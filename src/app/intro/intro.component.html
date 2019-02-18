@@ -1,0 +1,67 @@
+<div class="container-fluid h-100 px-0">
+  <div class="view intro-2">
+    <div class="full-bg-img">
+      <div class="mask flex-center">
+        <div [hidden]="!loading" class="container text-center white-text wow animated fadeIn delay-1s">
+          <img src="assets/luxcar.png" class="mx-auto logo" alt="">
+        </div>
+      </div>
+    </div>
+    <a (click)="scroll()">
+      <mdb-icon class="arrow-down" icon="angle-double-down" size="5x"></mdb-icon>
+    </a>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+
+
+    <div class="col-md-4 my-5 px-3 d-flex justify-content-around" #target>
+      <mdb-card cascade="true" narrower="true">
+        <div class=" view-cascade overlay waves-light" mdbWavesEffect>
+          <mdb-card-img src="assets/luxury.jpg"></mdb-card-img>
+        </div>
+        <mdb-card-body cascade="true" class="text-center">
+          <h4 class="card-title">LUXURIOUS</h4>
+          <mdb-card-text>
+            Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem
+            aperiam.
+          </mdb-card-text>
+          <a class="btn waves-light" routerLink="cars/luxurious" style="background: rgba(26, 102, 122, 0.8); color: white;" mdbWavesEffect>MORE</a>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+
+
+    <div class="col-md-4 my-5 px-3 d-flex justify-content-around">
+      <mdb-card cascade="true" narrower="true">
+        <div class=" view-cascade overlay waves-light" mdbWavesEffect>
+          <mdb-card-img src="assets/personal.jpg"></mdb-card-img>
+        </div>
+        <mdb-card-body cascade="true" class="text-center">
+          <h4 class="card-title">PERSONAL</h4>
+          <mdb-card-text>
+            Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem
+            aperiam.
+          </mdb-card-text>
+          <a class="btn waves-light" routerLink="cars/personal" style="background: rgba(26, 102, 122, 0.8); color: white;" mdbWavesEffect>MORE</a>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+    <div class="col-md-4 my-5 px-3 d-flex justify-content-around">
+      <mdb-card cascade="true" narrower="true">
+        <div class=" view-cascade overlay waves-light" mdbWavesEffect>
+          <mdb-card-img class="offerCar" src="assets/transport.jpg"></mdb-card-img>
+        </div>
+        <mdb-card-body cascade="true" class="text-center">
+          <h4 class="card-title">TRANSPORT</h4>
+          <mdb-card-text>
+            Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem
+            aperiam.
+          </mdb-card-text>
+          <a class="btn waves-light" routerLink="cars/transport" style="background: rgba(26, 102, 122, 0.8); color: white;" mdbWavesEffect>MORE</a>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
+</div>
