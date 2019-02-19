@@ -1,7 +1,7 @@
 <div *ngIf="carIsShowed"[@showHide]>
 <mdb-card cascade="true" narrower="true">
     <div class=" view-cascade overlay waves-light" mdbWavesEffect>
-      <mdb-card-img src="assets/personal.jpg"></mdb-card-img>
+      <mdb-card-img src="{{selectedCar.imgPath}}"></mdb-card-img>
     </div>
     <mdb-card-body cascade="true" class="text-center">
       <h4 class="card-title">{{selectedCar.model}}</h4>

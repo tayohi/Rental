@@ -32,9 +32,25 @@ import { HttpService } from './http.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { CarsComponent } from './cars/cars.component';
-import { CarModule } from './car.module';
-import { OrderModule } from './order.module';
-import { HistoryOrderModule } from './history-order.module';
+import { PanelComponent } from './panel/panel.component';
+import { AuthService } from './panel/auth.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { LoginGuardService } from './panel/login-guard.service';
+import { AdminGuardService } from './panel/admin-guard.service';
+import { FooterComponent } from './footer/footer.component';
+
+
+
+
+const config = {
+  apiKey: 'AIzaSyADSfl0nSAFe-ZizgdnURuzGOOwsHBrNlU',
+  authDomain: 'carrental-69c1b.firebaseapp.com',
+  databaseURL: 'https://carrental-69c1b.firebaseio.com',
+  projectId: 'carrental-69c1b',
+  storageBucket: 'carrental-69c1b.appspot.com',
+  messagingSenderId: '855635169092'
+};
 
 
 @NgModule({
@@ -59,6 +75,8 @@ import { HistoryOrderModule } from './history-order.module';
     OrdersListComponent,
     OrderHistoryComponent,
     ChooseOrderComponent,
+    PanelComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -71,8 +89,10 @@ import { HistoryOrderModule } from './history-order.module';
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule
   ],
-  providers: [HttpService, CarService, OrderService, AuthGuardService],
+  providers: [HttpService, CarService, OrderService, AuthGuardService, AuthService, LoginGuardService, AdminGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

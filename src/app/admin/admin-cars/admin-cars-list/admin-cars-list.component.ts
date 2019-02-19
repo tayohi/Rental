@@ -25,6 +25,7 @@ export class AdminCarsListComponent implements OnInit {
     engine: new FormControl(null, Validators.required),
     version: new FormControl(null, Validators.required),
     equipment: new FormControl(null, Validators.required),
+    imagePath: new FormControl(null, Validators.required)
   });
 
 
@@ -56,6 +57,7 @@ export class AdminCarsListComponent implements OnInit {
       engine: this.availableCar.engine,
       version: this.availableCar.description,
       equipment: this.availableCar.comments,
+      imagePath: this.availableCar.imgPath
     });
 
 
@@ -74,6 +76,7 @@ export class AdminCarsListComponent implements OnInit {
       engine: this.signupForm.get('engine').value,
       description: this.signupForm.get('version').value,
       comments: this.signupForm.get('equipment').value,
+      imgPath: this.signupForm.get('imagePath').value,
       reservation: this.availableCar.reservation
     };
     this.carService.updateCar(car);

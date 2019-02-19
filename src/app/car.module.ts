@@ -4,6 +4,7 @@ import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 export class CarModule {
 
   public id: number;
+  public imgPath: string;
   public type: string;
   public model: string;
   public engine: string;
@@ -11,10 +12,11 @@ export class CarModule {
   public comments: string;
   public reservation: NgbDate[];
 
-  constructor(id: number, type: string, model: string,
+  constructor(id: number, imgPath: string, type: string, model: string,
     engine: string, description: string,
     comments: string, reservation: NgbDate[]) {
     this.id = id;
+    this.imgPath = imgPath;
     this.type = type;
     this.model = model;
     this.engine = engine;

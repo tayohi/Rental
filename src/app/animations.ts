@@ -1,4 +1,5 @@
 import { trigger, state, query, style, animate, transition, animateChild, group } from '@angular/animations';
+import { Optional } from '@angular/core';
 
 export const Animations = [
   trigger('showHide', [
@@ -37,7 +38,7 @@ export const Animations = [
   ]),
 
   trigger('routeAnimations', [
-    transition('* => home, * => carsanimation, * => contact, * => admin, adminorders<=>admincars',  [
+    transition('* => carsanimation, * => login, * => contact, * => admin, adminorders<=>admincars',  [
       style({ position: 'relative' }),
       query(':enter, :leave', [
         style({
@@ -50,11 +51,11 @@ export const Animations = [
       query(':enter',  [
         style({ left: '-100%'})
       ]),
-      query(':leave',  animateChild()),
+      query(':leave',  animateChild(), {optional: true}),
       group([
         query(':leave',  [
           animate('800ms ease-out', style({ left: '100%'}))
-        ]),
+        ], {optional: true}),
         query(':enter', [
           animate('800ms ease-out', style({ left: '0%'}))
         ])

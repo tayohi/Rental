@@ -1,0 +1,35 @@
+<div class="container view flex-center">
+    <div class="modal-dialog"  role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="myModalLabel">Login panel</h4>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="login(formData)" #formData='ngForm'>
+            <div class="md-form">
+              <i class="fa fa-envelope prefix grey-text"></i>
+              <label for="email" class="">E-mail</label>
+              <input ngModel type="email" name="email" id="email" class="form-control" [mdbValidate]="false"
+                mdbInputDirective>
+              <div [ngClass]="{'alert alert-danger' : authService.showEmailError }">{{authService.showEmailError}}</div>
+            </div>
+
+            <div class="md-form">
+              <i class="fa fa-lock prefix grey-text"></i>
+              <label for="pass">Password</label>
+              <input ngModel type="password" name="password" id="pass" class="form-control" [mdbValidate]="false"
+                mdbInputDirective>
+              <div [ngClass]="{'alert alert-danger' : authService.showPassError }">{{authService.showPassError}}</div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-outline-dark"
+                aria-label="Close" [disabled]="formData.invalid">Sign in</button>
+              <button type="button" class="btn btn-outline-dark"
+                aria-label="Close" [disabled]="formData.invalid" (click)="signup(formData)">Sign up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>

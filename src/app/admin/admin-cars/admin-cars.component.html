@@ -4,11 +4,12 @@
       <button class="btn btn-outline-dark px-5" (click)="addCar()" type="button" mdbWavesEffect>Add new car</button>
       <button class="btn btn-outline-dark px-5" (click)="deleteCars()" type="button">Delete car</button>
     </div>
+  </div>
     <div class="row mb-5">
-      <app-admin-cars-list *ngFor="let car of cars;" [availableCar]="car" (deleteCar)="deletedCars($event, car)" class="col-lg-4 col-md-6 my-3"></app-admin-cars-list>
+      <app-admin-cars-list *ngFor="let car of cars;" [availableCar]="car" (deleteCar)="deletedCars($event, car)"
+        class="col-lg-4 col-md-6 my-3"></app-admin-cars-list>
     </div>
   </div>
-</div>
 
 
 
@@ -21,32 +22,36 @@
   </div>
   <div class="modal-body">
     <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
-        <div class="col-sm-12 mx-auto text-left px-auto">
-            <div class="form-group">
-                <p>Select type of car </p>
-                <select id="type" class="browser-default custom-select form-control" formControlName="type">
-                  <option value="Luxury">Luxury</option>
-                  <option value="Personal">Personal</option>
-                  <option value="Transport">Transport</option>
-                </select>
-              </div>
-          <div class="form-group">
-            <label for="model">Mark</label>
-            <input type="text" id="model" formControlName="model" class="form-control">
-          </div>
-          <div class="form-group">
-              <label for="engine">Engine</label>
-              <input type="text" id="engine" formControlName="engine" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="version">Version</label>
-                <input type="text" id="version" formControlName="version" class="form-control">
-              </div>
-              <div class="form-group">
-                  <label for="equipment">Additional equipment</label>
-                  <input type="text" id="equipment" formControlName="equipment" class="form-control">
-                </div>
+      <div class="col-sm-12 mx-auto text-left px-auto">
+        <div class="form-group">
+          <p>Select type of car </p>
+          <select id="type" class="browser-default custom-select form-control" formControlName="type">
+            <option value="Luxury">Luxury</option>
+            <option value="Personal">Personal</option>
+            <option value="Transport">Transport</option>
+          </select>
         </div>
+        <div class="form-group">
+          <label for="model">Mark</label>
+          <input type="text" id="model" formControlName="model" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="engine">Engine</label>
+          <input type="text" id="engine" formControlName="engine" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="version">Version</label>
+          <input type="text" id="version" formControlName="version" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="equipment">Additional equipment</label>
+          <input type="text" id="equipment" formControlName="equipment" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="imagePath">Image path</label>
+          <input type="text" id="imagePath" formControlName="imagePath" class="form-control">
+        </div>
+      </div>
       <button class="btn btn-outline-dark" type="submit" [disabled]="!signupForm.valid">Add new car</button>
     </form>
   </div>

@@ -9,16 +9,12 @@ import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scrol
   styleUrls: ['./cars.component.scss'],
   animations: [Animations],
 })
-export class CarsComponent implements OnInit, AfterViewInit {
+export class CarsComponent implements OnInit {
   loading = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private scrollToService: ScrollToService) { }
 
   ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-    this.loading = true;
   }
 
   prepareRoute(outlet: RouterOutlet) {

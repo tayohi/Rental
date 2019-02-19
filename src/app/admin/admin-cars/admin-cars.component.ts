@@ -2,11 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CarModule } from 'src/app/car.module';
 import { Subscription } from 'rxjs';
 import { CarService } from 'src/app/car.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { NgbModal, NgbModalConfig, NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { TouchSequence } from 'selenium-webdriver';
-import { HttpService } from 'src/app/http.service';
 
 @Component({
   selector: 'app-admin-cars',
@@ -20,6 +17,7 @@ export class AdminCarsComponent implements OnInit {
     engine: new FormControl(null, Validators.required),
     version: new FormControl(null, Validators.required),
     equipment: new FormControl(null, Validators.required),
+    imagePath: new FormControl(null, Validators.required)
   });
 
   @ViewChild('content') content;
@@ -70,6 +68,7 @@ export class AdminCarsComponent implements OnInit {
       engine: this.signupForm.get('engine').value,
       description: this.signupForm.get('version').value,
       comments: this.signupForm.get('equipment').value,
+      imgPath: this.signupForm.get('imagePath').value,
       reservation: []
     };
     this.carService.addCar(car);
