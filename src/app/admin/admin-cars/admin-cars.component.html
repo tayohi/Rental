@@ -1,17 +1,17 @@
-<div class="container-fluid">
+<div class="container-fluid px-lg-5 px-0">
   <div class="row text-center mx-2">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <button class="btn btn-outline-dark px-5" (click)="addCar()" type="button" mdbWavesEffect>Add new car</button>
       <button class="btn btn-outline-dark px-5" (click)="deleteCars()" type="button">Delete car</button>
     </div>
   </div>
+  <div class="col-sm-12 mt-5 mx-auto text-center px-auto">
     <div class="row mb-5">
       <app-admin-cars-list *ngFor="let car of cars;" [availableCar]="car" (deleteCar)="deletedCars($event, car)"
-        class="col-lg-4 col-md-6 my-3 admin-margin"></app-admin-cars-list>
+        class="col-lg-4 col-md-6 mt-3 mb-5"></app-admin-cars-list>
+    </div>
     </div>
   </div>
-
-
 
 <ng-template #content let-c="close">
   <div class="modal-header">
