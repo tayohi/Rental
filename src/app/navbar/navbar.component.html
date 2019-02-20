@@ -20,7 +20,7 @@
       <li class="nav-item mx-1" routerLinkActive="active" mdbWavesEffect>
         <a routerLink="/login" *ngIf="!authService.user" class="nav-link">Login</a>
       </li>
-      <li *ngIf="authService.adminToken" class="nav-item dropdown" dropdown>
+      <li *ngIf="authService.user && authService.user.uid === authService.adminId" class="nav-item dropdown" dropdown>
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle">Admin panel <span
             class="caret"></span></a>
         <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary elegant-color-dark" role="menu">
