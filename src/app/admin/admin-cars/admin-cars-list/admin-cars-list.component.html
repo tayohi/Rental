@@ -10,8 +10,8 @@
     </mdb-card-text>
     <button type="button" class="btn" #test [ngClass]="selected ? 'btn-outline-dark' : 'btn-danger'" (click)="selectCar()">{{selected ? 'press to delete' : 'selected to delete'}}</button>
     <button type="button" class="btn btn-outline-dark" (click)="editCar()">Edit</button>
-    <span class="help-block" *ngIf="error">Sory You must delete orders with this car! </span>
   </mdb-card-body>
+  <span class="help-block" *ngIf="error">Sory You must delete orders with this car! </span>
 </mdb-card>
 
 
