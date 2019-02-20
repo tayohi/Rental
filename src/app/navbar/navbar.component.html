@@ -1,33 +1,38 @@
-    <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar intro-fixed-nav elegant-color-dark " [containerInside]="false">
-      <links>
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" mdbWavesEffect>
-            <a class="nav-link mx-1" routerLink="/">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item mx-1"routerLinkActive="active" mdbWavesEffect>
-            <a routerLink="/cars" class="nav-link">Cars</a>
-          </li>
-          <li class="nav-item mx-1"routerLinkActive="active" mdbWavesEffect>
-            <a routerLink="/contact" class="nav-link">Contact</a>
-          </li>
-          <li class="nav-item mx-1"routerLinkActive="active" mdbWavesEffect>
-            <a routerLink="/reserve" class="nav-link">Reserve</a>
-          </li>
-          <li class="nav-item mx-1" mdbWavesEffect>
-            <a class="nav-link">Login</a>
-          </li>
-          <li class="nav-item dropdown"dropdown>
-            <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle">Admin panel <span class="caret"></span></a>
-            <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary elegant-color-dark" role="menu">
-              <a class="dropdown-item waves-light text-light" routerLinkActive="active" routerLink="admin/cars" mdbWavesEffect>Cars</a>
-              <a class="dropdown-item waves-light text-light" routerLinkActive="active" routerLink="admin/orders" mdbWavesEffect>Orders</a>
-            </div>
-          </li>
-        </ul>
-      </links>
-    </mdb-navbar>
-
-
-
+<mdb-navbar
+  SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar intro-fixed-nav elegant-color-dark "
+  [containerInside]="false">
+  <links>
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" mdbWavesEffect>
+        <a class="nav-link mx-1" routerLink="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item mx-1" routerLinkActive="active" mdbWavesEffect>
+        <a routerLink="/cars" class="nav-link">Cars</a>
+      </li>
+      <li class="nav-item mx-1" routerLinkActive="active" mdbWavesEffect>
+        <a routerLink="/contact" class="nav-link">Contact</a>
+      </li>
+      <li class="nav-item mx-1" routerLinkActive="active" mdbWavesEffect>
+        <a routerLink="/reserve" class="nav-link">Reserve</a>
+      </li>
+      <li class="nav-item mx-1" routerLinkActive="active" mdbWavesEffect>
+        <a routerLink="/login" *ngIf="!authService.user" class="nav-link">Login</a>
+      </li>
+      <li *ngIf="authService.user && authService.user.uid === authService.adminId" class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle">Admin panel <span
+            class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary elegant-color-dark" role="menu">
+          <a class="dropdown-item waves-light text-light" routerLinkActive="active" routerLink="admin/cars"
+            mdbWavesEffect>Cars</a>
+          <a class="dropdown-item waves-light text-light" routerLinkActive="active" routerLink="admin/orders"
+            mdbWavesEffect>Orders</a>
+        </div>
+      </li>
+      <li class="nav-item mx-1 text-right" routerLinkActive="active" mdbWavesEffect>
+        <div *ngIf="authService.user" class="nav-link"><a class=""  (click)="logout()"  mdbWavesEffect> Logout: &nbsp; &nbsp;{{authService.user.email}} </a></div>
+      </li>
+    </ul>
+  </links>
+</mdb-navbar>

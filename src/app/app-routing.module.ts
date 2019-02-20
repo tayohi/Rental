@@ -16,6 +16,9 @@ import { LuxComponent } from './cars/lux/lux.component';
 import { PersonalComponent } from './cars/personal/personal.component';
 import { TransportComponent } from './cars/transport/transport.component';
 import { ContactComponent } from './contact/contact.component';
+import { PanelComponent } from './panel/panel.component';
+import { LoginGuardService } from './panel/login-guard.service';
+import { AdminGuardService } from './panel/admin-guard.service';
 
 const appRoutes: Routes = [
   {
@@ -35,7 +38,7 @@ const appRoutes: Routes = [
     path: 'reserve', component: ReservationComponent, children: [
       {
         path: 'checkout', component: CheckoutComponent,
-        canActivate: [AuthGuardService]
+        canActivate: [LoginGuardService]
       },
     ]
   },
@@ -43,7 +46,10 @@ const appRoutes: Routes = [
     path: 'contact', component: ContactComponent, data: { animation: 'contact' }
   },
   {
-    path: 'admin', component: AdminComponent, data: { animation: 'admin' }, children: [
+    path: 'login', component: PanelComponent, data: { animation: 'login' }
+  },
+  {
+    path: 'admin', canActivate: [AdminGuardService], component: AdminComponent, data: { animation: 'admin' }, children: [
       { path: 'cars', component: AdminCarsComponent, data: { animation: 'admincars' } },
       {
         path: 'orders', component: OrdersComponent, data: { animation: 'adminorders' }, children: [
